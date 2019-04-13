@@ -1,0 +1,36 @@
+<h1>Add New Stock</h1>
+
+<form action="/stock" method="POST">
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+
+  <label for="image">Image:</label>
+  <input type="text" id="image" name="image">
+
+  <label for="manufacturer">Manufacturer:</label>
+  <input type="text" id="manufacturer" name="manufacturer">
+
+  <label for="type">Type:</label>
+  <select id="type" name="body type">
+    <option value="" selected disabled>Select a type</option>
+    <% @stock.each do |item| %>
+    <option value="<%= item.id%>"><%= item.type %></option>
+    <% end %>
+  </select>
+
+  <label for="category">Category CC:</label>
+  <input type="number" id="category" name="category">
+
+  <label for="max_speed">Max Speed:</label>
+  <input type="number" id="max_speed" name="max_speed">
+
+  <label for="cost">Cost per Week:</label>
+  <input type="number" id="cost" name="cost">
+
+  <hr />
+
+  <input type="submit" value="Add Stock Item">
+
+
+</form>

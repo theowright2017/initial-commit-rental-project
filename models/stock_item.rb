@@ -41,8 +41,11 @@ class StockItem
     SqlRunner.run(sql, values)
   end
 
-
-
+  def self.delete(id)
+    sql = "DELETE FROM stock_items WHERE id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
 
   def self.all()
     sql = "SELECT * FROM stock_items"

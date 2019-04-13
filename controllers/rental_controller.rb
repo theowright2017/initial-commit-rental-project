@@ -10,3 +10,9 @@ get '/rentals' do
   @rentals = Rental.all
   erb(:'rentals/index')
 end
+
+get '/rentals/new' do
+  @stock = StockItem.all()
+  @customers = Customer.all()
+  erb(:'/rentals/new')
+end

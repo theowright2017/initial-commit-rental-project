@@ -10,26 +10,23 @@ StockItem.delete_all()
 
 customer1 = Customer.new({
       "name"  =>  "John Wayne"
-      # "item_rented"   =>  ""
       })
 customer1.save()
 
 customer2 = Customer.new({
       "name"  =>  "Terry Tibbs"
-      # "item_rented"   =>  ""
       })
 customer2.save()
 
 customer3 = Customer.new({
       "name"  =>  "Tony Montana"
-      # "item_rented"   =>  ""
       })
 customer3.save()
 
 stock_item1 = StockItem.new({
   "name"  =>  "SH 300i",
   "manufacturer"  => "Honda",
-  "type"  =>  "scooter",
+  "type"  =>  "Scooter",
   "category_cc" =>  280,
   "max_speed_mph" =>  75,
   "cost_per_week" =>  80,
@@ -40,7 +37,7 @@ stock_item1 = StockItem.new({
   stock_item2 = StockItem.new({
     "name"  =>  "PK 650t",
     "manufacturer"  => "Yamaha",
-    "type"  =>  "motorbike",
+    "type"  =>  "Motorbike",
     "category_cc" =>  650,
     "max_speed_mph" =>  160,
     "cost_per_week" =>  120,
@@ -51,7 +48,7 @@ stock_item1 = StockItem.new({
     stock_item3 = StockItem.new({
       "name"  =>  "950zi",
       "manufacturer"  => "BMW",
-      "type"  =>  "tourer",
+      "type"  =>  "Tourer",
       "category_cc" =>  955,
       "max_speed_mph" =>  160,
       "cost_per_week" =>  150,
