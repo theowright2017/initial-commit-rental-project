@@ -7,7 +7,7 @@
 <select id="bike" name="stock_item_id">
   <option value="" selected disabled>Select a Bike</option>
   <% @stock.each do |item| %>
-  <option value="<%= item.id%>"><%= item.manufacturer %> <%= item.name %></option>
+  <option value="<%= item.id%>"><%= item.manufacturer %> <%= item.name %> <%=item.rented%></option>
   <% end %>
 </select>
 

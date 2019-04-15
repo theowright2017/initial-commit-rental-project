@@ -2,7 +2,7 @@ require_relative( '../db/sqlrunner' )
 
 class Rental
 
-  attr_reader( :id, :customer_id, :stock_item_id, :name )
+  attr_reader( :id, :customer_id, :stock_item_id)
 
   def initialize( options )
     @id = options['id'].to_i if options['id']

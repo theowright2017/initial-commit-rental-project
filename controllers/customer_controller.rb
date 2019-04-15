@@ -8,6 +8,7 @@ also_reload( '../models/*' )
 
 get '/customers' do
   @customers = Customer.all()
+  # binding.pry
   erb ( :"customers/index")
 end
 

@@ -1,4 +1,4 @@
-DROP TABLE rentals;
+  DROP TABLE rentals;
 DROP TABLE stock_items;
 DROP TABLE customers;
 
@@ -18,7 +18,8 @@ CREATE TABLE stock_items
   category_cc INT,
   max_speed_mph INT,
   cost_per_week INT,
-  image VARCHAR(255)
+  image VARCHAR(255),
+  rented BIT
 );
 
 CREATE TABLE rentals

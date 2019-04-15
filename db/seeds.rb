@@ -35,7 +35,8 @@ stock_item1 = StockItem.new({
   "category_cc" =>  280,
   "max_speed_mph" =>  75,
   "cost_per_week" =>  80,
-  "image" =>  "images/honda sh300i.jpg"
+  "image" =>  "images/honda sh300i.jpg",
+  "rented"  =>  0
   })
   stock_item1.save()
 
@@ -46,7 +47,8 @@ stock_item1 = StockItem.new({
     "category_cc" =>  650,
     "max_speed_mph" =>  160,
     "cost_per_week" =>  120,
-    "image" =>  "images/honda sh300i.jpg"
+    "image" =>  "images/honda sh300i.jpg",
+    "rented"  =>  0
     })
     stock_item2.save()
 
@@ -57,7 +59,8 @@ stock_item1 = StockItem.new({
       "category_cc" =>  955,
       "max_speed_mph" =>  160,
       "cost_per_week" =>  150,
-      "image" =>  "images/honda sh300i.jpg"
+      "image" =>  "images/honda sh300i.jpg",
+      "rented"  =>  0
       })
       stock_item3.save()
 
@@ -68,7 +71,8 @@ stock_item1 = StockItem.new({
         "category_cc" =>  955,
         "max_speed_mph" =>  180,
         "cost_per_week" =>  165,
-        "image" =>  "images/honda sh300i.jpg"
+        "image" =>  "images/honda sh300i.jpg",
+        "rented"  =>  0
         })
         stock_item4.save()
 
@@ -101,6 +105,6 @@ stock_item1 = StockItem.new({
 
 
 
-
+customer1.rental_items()
 binding.pry
 nil

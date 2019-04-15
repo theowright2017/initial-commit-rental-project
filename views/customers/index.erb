@@ -1,3 +1,5 @@
+
+
 <h1>Customers</h1>
 
 <form action="/customers/new" method="GET">
@@ -19,19 +21,21 @@
 <% @customers.each do |customer| %>
 
 <table>
-<tr>
-   <td><%= customer.name %></td>
-   <td><%= customer.rental_items%></td>
-   <td>
-     <form  action="/customers/<%=customer.id %>/edit" method="get">
-       <input type="submit" name="edit" value="edit">
-     </form>
-     </td>
-     <td>
-     <form action="/customers/ <%= customer.id %>/delete" method="POST">
-      <input class="btn btn--danger" type="submit" value="delete" />
+  <tr>
+    <td><%= customer.name %></td>
+    <% for rental in customer.rental_items %>
+    <td><%= rental.name %></td>
+    <% end %>
+    <td>
+      <form  action="/customers/<%=customer.id %>/edit" method="get">
+        <input type="submit" name="edit" value="edit">
       </form>
-  </td>
-</tr>
-<% end %>
+    </td>
+    <td>
+      <form action="/customers/ <%= customer.id %>/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+      </form>
+    </td>
+  </tr>
+  <% end %>
 </table>

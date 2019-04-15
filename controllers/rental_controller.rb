@@ -26,7 +26,7 @@ end
 post '/rentals' do
   rental = Rental.new(params)
   rental.save()
-  StockItem.delete(params[:stock_item_id])
+  
   redirect ('/rentals')
 end
 

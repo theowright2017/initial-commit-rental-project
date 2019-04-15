@@ -13,6 +13,7 @@ end
 
 get '/stock/new' do
   @stock = ["Standard", "Sports Bike", "Tourer"]
+  @rented = [0,1]
   erb(:'/stock_items/new')
 end
 

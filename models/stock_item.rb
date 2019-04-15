@@ -2,7 +2,7 @@ require_relative( '../db/sqlrunner' )
 
 class StockItem
   attr_reader(:id )
-  attr_accessor( :name, :manufacturer, :type, :category_cc, :max_speed_mph, :cost_per_week, :image )
+  attr_accessor( :name, :manufacturer, :type, :category_cc, :max_speed_mph, :cost_per_week, :image, :rented )
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
@@ -13,6 +13,7 @@ class StockItem
     @max_speed_mph = options['max_speed_mph'].to_i
     @cost_per_week = options['cost_per_week'].to_i
     @image = options['image']
+    @rented = options['rented']
   end
 
   def save()
@@ -24,14 +25,15 @@ class StockItem
               category_cc,
               max_speed_mph,
               cost_per_week,
-              image
+              image,
+              rented
               )
               VALUES
               (
-               $1, $2, $3, $4, $5, $6, $7
+               $1, $2, $3, $4, $5, $6, $7, $8
                 )
                 RETURNING id"
-    values = [@name, @manufacturer, @type, @category_cc, @max_speed_mph, @cost_per_week, @image]
+    values = [@name, @manufacturer, @type, @category_cc, @max_speed_mph, @cost_per_week, @image, @rented]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
@@ -44,12 +46,13 @@ class StockItem
     type,
     category_cc,
     max_speed_mph,
-    cost_per_week
+    cost_per_week,
+    rented
     )
      =
-      ($1, $2, $3, $4, $5, $6, $7)
-    WHERE id = $8"
-    values = [@name, @image, @manufacturer, @type, @category_cc, @max_speed_mph, @cost_per_week, @id]
+      ($1, $2, $3, $4, $5, $6, $7, $8)
+    WHERE id = $9"
+    values = [@name, @image, @manufacturer, @type, @category_cc, @max_speed_mph, @cost_per_week, @rented, @id]
     SqlRunner.run(sql, values)
   end
 
