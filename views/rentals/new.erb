@@ -1,1 +1,23 @@
+<h1>Add new Rental</h1>
 
+
+<form action="/rentals" method="POST">
+
+<label for="bike">Bike:</label>
+<select id="bike" name="stock_item_id">
+  <option value="" selected disabled>Select a Bike</option>
+  <% @stock.each do |item| %>
+  <option value="<%= item.id%>"><%= item.manufacturer %> <%= item.name %></option>
+  <% end %>
+</select>
+
+<label for="customer">Customer:</label>
+<select id="customer" name="customer_id">
+  <option value="" selected disabled>Select a Customer</option>
+  <% @customers.each do |customer| %>
+  <option value="<%= customer.id%>"><%= customer.name %></option>
+  <% end %>
+</select>
+
+<input type="submit" value="Add New Rental">
+</form>

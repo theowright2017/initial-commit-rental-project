@@ -1,6 +1,7 @@
 <h1>Available Stock</h1>
-<form action="/stock/new" method="POST">
-  <input class="btn btn--action" type='submit' value="Add New Stock">
+<form action="/stock/new" method="Get">
+  <input type='submit' value="Add New Stock">
+  <!-- type = submit as method is get, links to action -->
   </form>
 <br>
 <br>
@@ -15,12 +16,13 @@
     <th>Category</th>
     <th>Max Speed</th>
     <th>Cost per Week</th>
+    <th></th>
+    <th></th>
   </tr>
 </table>
 
 <!--have to use two tables as a form cannot go inside table... use loop to call each element of stock.all item, then each table row will consist of the contents of the item hash, by calling methods (attr_reader).... form action is referring to stock/:id/delete, which is a post method in the controller, so the button deletes the stock item related to it via the id, and then redirects to the same page -->
   <% @stock.each do |item| %>
-  <form action="/stock/ <%= item  .id %>/delete" method="POST">
 <table>
   <tr>
      <td><%= item.name %></td>
@@ -33,9 +35,15 @@
      <td><%= item.max_speed_mph %></td>
      <td><%= item.cost_per_week %></td>
      <td>
+       <form action="/stock/<%=item.id%>/edit" method="Get">
+              <input type="submit" value="edit"/>
+      </form>
+      </td>
+      <td>
+       <form action="/stock/<%= item.id %>/delete" method="POST">
               <input class="btn btn--danger" type="submit" value="delete" />
+            </form>
     </td>
   </tr>
   <% end %>
 </table>
-</form>

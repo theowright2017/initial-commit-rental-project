@@ -8,7 +8,6 @@ class Customer
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    # @item_rented = options['item_rented']
   end
 
   def save()
@@ -54,6 +53,12 @@ class Customer
     sql = "SELECT * FROM customers"
     results = SqlRunner.run(sql)
     return results.map{ |customer| Customer.new(customer) }
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM customers WHERE id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
   end
 
 

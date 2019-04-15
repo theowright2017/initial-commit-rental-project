@@ -11,22 +11,26 @@
   <label for="manufacturer">Manufacturer:</label>
   <input type="text" id="manufacturer" name="manufacturer">
 
-  <label for="type">Type:</label>
-  <select id="type" name="body type">
-    <option value="" selected disabled>Select a type</option>
+  <label for="type">Type:
+
+  <select id="type" name="type">
+    <option value="type" selected disabled>Select a type</option>
     <% @stock.each do |item| %>
-    <option value="<%= item.id%>"><%= item.type %></option>
+    <option value="<%= item%>"><%= item %></option>
     <% end %>
   </select>
+  </label>
+
+
 
   <label for="category">Category CC:</label>
-  <input type="number" id="category" name="category">
+  <input type="number" id="category" name="category_cc">
 
   <label for="max_speed">Max Speed:</label>
-  <input type="number" id="max_speed" name="max_speed">
+  <input type="number" id="max_speed" name="max_speed_mph">
 
   <label for="cost">Cost per Week:</label>
-  <input type="number" id="cost" name="cost">
+  <input type="number" id="cost" name="cost_per_week">
 
   <hr />
 

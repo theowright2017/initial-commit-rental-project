@@ -1,0 +1,31 @@
+<h1>Edit Stock Item</h1>
+
+<!-- for the form to pick up the id, we need to call @stock.id/edit -->
+
+<form action="/stock/<%=@stock.id%>/edit" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" value="<%=@stock.name%>">
+
+  <label for="image">Image:</label>
+  <input type="text" id="image" name="image" value="<%=@stock.image %>">
+
+  <label for="manufacturer">Manufacturer:</label>
+  <input type="text" id="manufacturer" name="manufacturer"     value="<%=@stock.manufacturer%>">
+
+  <label for="type">Type:</label>
+  <input type="text" id="type" name="type" value="<%=@stock.type%>">
+
+  <label for="category_cc">Category CC:</label>
+  <input type="number" id="category_cc" name="category_cc" value="<%=@stock.category_cc%>">
+
+  <label for="max_speed_mph">Max Speed:</label>
+  <input type="number" id="max_speed_mph" name="max_speed_mph" value="<%=@stock.max_speed_mph%>">
+
+  <label for="cost_per_week">Cost per Week:</label>
+  <input type="number" id="cost_per_week" name="cost_per_week" value="<%=@stock.cost_per_week%>">
+
+
+    <input type="submit" name="save" value="save">
+
+
+  </form>

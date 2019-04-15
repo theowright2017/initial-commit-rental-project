@@ -16,3 +16,21 @@ get '/rentals/new' do
   @customers = Customer.all()
   erb(:'/rentals/new')
 end
+
+post '/rentals/new' do
+  @stock = StockItem.all()
+  @customers = Customer.all()
+  erb(:'/rentals/new')
+end
+
+post '/rentals' do
+  rental = Rental.new(params)
+  rental.save()
+  StockItem.delete(params[:stock_item_id])
+  redirect ('/rentals')
+end
+
+post '/rentals/:id/delete' do
+  Rental.delete(params[:id])
+  redirect (:'/rentals')
+end

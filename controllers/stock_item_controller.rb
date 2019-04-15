@@ -12,24 +12,29 @@ get '/stock' do
 end
 
 get '/stock/new' do
-  @stock = StockItem.all()
+  @stock = ["Standard", "Sports Bike", "Tourer"]
   erb(:'/stock_items/new')
 end
-
-post '/stock/new' do
-  @stock = StockItem.all()
-  erb(:'/stock_items/new')
-end
-
-
 
 post '/stock' do
   stock = StockItem.new(params)
   stock.save
-  redirect to("/stock")
+  redirect to "/stock"
 end
+
+get '/stock/:id/edit' do
+  @stock = StockItem.find(params[:id])
+  erb(:'/stock_items/edit')
+end
+
+post '/stock/:id/edit' do
+  stock = StockItem.new(params)
+  stock.update()
+  redirect to '/stock'
+end
+# this takes the new instance of stockitem, inputs the parameters taken from the get, (where the form is from) and updates it into the database
 
 post '/stock/:id/delete' do
   StockItem.delete(params[:id])
-  redirect (:'/stock')
+  redirect to "/stock"
 end

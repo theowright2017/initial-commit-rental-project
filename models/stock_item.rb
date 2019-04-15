@@ -1,8 +1,8 @@
 require_relative( '../db/sqlrunner' )
 
 class StockItem
-
-  attr_reader( :id, :name, :manufacturer, :type, :category_cc, :max_speed_mph, :cost_per_week, :image )
+  attr_reader(:id )
+  attr_accessor( :name, :manufacturer, :type, :category_cc, :max_speed_mph, :cost_per_week, :image )
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
@@ -35,6 +35,32 @@ class StockItem
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
+  def update()
+    sql = "UPDATE stock_items
+    SET
+    (name,
+      image,
+    manufacturer,
+    type,
+    category_cc,
+    max_speed_mph,
+    cost_per_week
+    )
+     =
+      ($1, $2, $3, $4, $5, $6, $7)
+    WHERE id = $8"
+    values = [@name, @image, @manufacturer, @type, @category_cc, @max_speed_mph, @cost_per_week, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM stock_items WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run(sql, values).first
+    return StockItem.new(results)
+  end
+  #we need the method to return the object, if we just return results, this will give an array, so we need to turn this array element into an instance of the stockitem class
+
   def delete()
     sql = "DELETE FROM stock_items WHERE id = $1"
     values = [@id]
@@ -46,6 +72,8 @@ class StockItem
     values = [id]
     SqlRunner.run(sql, values)
   end
+
+
 
   def self.all()
     sql = "SELECT * FROM stock_items"

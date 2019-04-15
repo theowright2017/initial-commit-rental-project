@@ -2,7 +2,7 @@ require_relative( '../db/sqlrunner' )
 
 class Rental
 
-  attr_reader( :id, :customer_id, :stock_item_id )
+  attr_reader( :id, :customer_id, :stock_item_id, :name )
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
@@ -47,7 +47,11 @@ def customer()
   return Customer.new(results[0])
 end
 
-
+def self.delete(id)
+  sql = "DELETE FROM rentals WHERE id = $1"
+  values = [id]
+  SqlRunner.run(sql, values)
+end
 
 
 

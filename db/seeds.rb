@@ -23,6 +23,11 @@ customer3 = Customer.new({
       })
 customer3.save()
 
+customer4 = Customer.new({
+      "name"  =>  "Kevin Hart"
+      })
+customer4.save()
+
 stock_item1 = StockItem.new({
   "name"  =>  "SH 300i",
   "manufacturer"  => "Honda",
@@ -37,7 +42,7 @@ stock_item1 = StockItem.new({
   stock_item2 = StockItem.new({
     "name"  =>  "PK 650t",
     "manufacturer"  => "Yamaha",
-    "type"  =>  "Motorbike",
+    "type"  =>  "Sports Bike",
     "category_cc" =>  650,
     "max_speed_mph" =>  160,
     "cost_per_week" =>  120,
@@ -56,6 +61,17 @@ stock_item1 = StockItem.new({
       })
       stock_item3.save()
 
+      stock_item4 = StockItem.new({
+        "name"  =>  "Ninja",
+        "manufacturer"  => "Kawazaki",
+        "type"  =>  "Sports Bike",
+        "category_cc" =>  955,
+        "max_speed_mph" =>  180,
+        "cost_per_week" =>  165,
+        "image" =>  "images/honda sh300i.jpg"
+        })
+        stock_item4.save()
+
   rental1 = Rental.new({
     "customer_id" => customer1.id,
     "stock_item_id" =>  stock_item1.id
@@ -73,6 +89,8 @@ stock_item1 = StockItem.new({
     "stock_item_id" =>  stock_item2.id
     })
   rental3.save()
+
+
 
 
 

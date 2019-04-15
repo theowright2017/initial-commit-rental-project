@@ -1,1 +1,37 @@
 <h1>Customers</h1>
+
+<form action="/customers/new" method="GET">
+  <input class="btn btn--action" type='submit' value="Add New Customer">
+</form>
+<br>
+<br>
+<br>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Rental</th>
+    <th></th>
+    <th></th>
+  </tr>
+</table>
+
+
+<% @customers.each do |customer| %>
+
+<table>
+<tr>
+   <td><%= customer.name %></td>
+   <td><%= customer.rental_items%></td>
+   <td>
+     <form  action="/customers/<%=customer.id %>/edit" method="get">
+       <input type="submit" name="edit" value="edit">
+     </form>
+     </td>
+     <td>
+     <form action="/customers/ <%= customer.id %>/delete" method="POST">
+      <input class="btn btn--danger" type="submit" value="delete" />
+      </form>
+  </td>
+</tr>
+<% end %>
+</table>
