@@ -26,9 +26,10 @@ end
 post '/rentals' do
   rental = Rental.new(params)
   rental.save()
+    # binding.pry
   item = StockItem.find(params[:stock_item_id])
   item.change_rented_to_unavailable()
-  # binding.pry
+
   redirect ('/rentals')
 end
 

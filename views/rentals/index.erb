@@ -5,7 +5,7 @@
 <ul>
   <% for rental in @rentals %>
   <li>
-    <p><%= rental.item.manufacturer %> <%= rental.item.name %> is being rented by <%= rental.customer.name %></p>
+    <p><%= rental.item.manufacturer %> <%= rental.item.name %> is being rented by <%= rental.customer.first_name %> <%= rental.customer.last_name %></p>
     <p>
       <form action="/rentals/<%= rental.id %>/delete" method="POST">
         <input class="btn btn--danger" type="submit" value="delete" />

@@ -5,7 +5,8 @@ DROP TABLE customers;
 CREATE TABLE customers
 (
   id SERIAL8 primary key,
-  name VARCHAR(255)
+  first_name VARCHAR(255),
+  last_name VARCHAR(255)
   -- item_rented VARCHAR
 );
 

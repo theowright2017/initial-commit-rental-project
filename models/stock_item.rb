@@ -60,7 +60,7 @@ class StockItem
     sql = "UPDATE stock_items
     SET   rented = $1
     WHERE id = $2"
-    values = ["t", @id]
+    values = [true, @id]
     SqlRunner.run(sql,values)
     @rented = true
   end
@@ -69,7 +69,7 @@ class StockItem
     sql = "UPDATE stock_items
     SET   rented = $1
     WHERE id = $2"
-    values = ["f", @id]
+    values = [false, @id]
     SqlRunner.run(sql,values)
     @rented = false
   end

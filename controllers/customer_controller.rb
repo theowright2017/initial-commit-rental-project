@@ -22,6 +22,16 @@ get '/customers/:id' do
   erb (:'customers/show')
 end
 
+# get '/customers/search' do
+#   @customers = Customer.all()
+#   erb(:'customers/search')
+# end
+
+post '/customers/search' do
+  @customers= Customer.all()
+  Customer.search(params[:input])
+  erb(:'customers/search')
+end
 
 post '/customers' do
   customer = Customer.new(params)

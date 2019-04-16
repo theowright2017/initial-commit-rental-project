@@ -11,15 +11,15 @@
 
   <% @stock.each do |item| %>
 
-    <% if item.rented == "f" %>
+    <% if item.rented == 'f' %>
 
   <option value="<%=item.id%>"><%= item.manufacturer %> <%= item.name %>
-     <%=item.rented%></option>
+     <%#<%=item.rented%></option>
 
     <% else %>
 
     <option value="<%=item.id%>"disabled><%= item.manufacturer%>
-      <%= item.name%> <%=item.rented%>></option>
+      <%= item.name%> <%#<%=item.rented%>></option>
 
     <% end %>
   <% end %>
@@ -30,9 +30,9 @@
 <select id="customer" name="customer_id">
   <option value="" selected disabled>Select a Customer</option>
   <% @customers.each do |customer| %>
-  <option value="<%= customer.id%>"><%= customer.name %></option>
+  <option value="<%= customer.id%>"> <%= customer.first_name %> <%= customer.last_name %></option>
   <% end %>
 </select>
-
+<!-- <input type="hidden" name="rented" value="f"> -->
 <input type="submit" value="Add New Rental">
 </form>

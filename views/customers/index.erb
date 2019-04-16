@@ -2,7 +2,7 @@
 
 <h1>Customers</h1>
 
-<form class="search_customer" action="/customers" method="post">
+<form class="search_customer" action="/customers/search" method="post">
   <input type="search" name="" placeholder="search">
   <input type="submit" name="" value="submit">
 </form>
@@ -16,7 +16,8 @@
 <br>
 <table>
   <tr>
-    <th>Name</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Rental</th>
     <th></th>
     <th></th>
@@ -28,7 +29,8 @@
 
 <table>
   <tr>
-    <td><%= customer.name %></td>
+    <td><%= customer.first_name %></td>
+    <td><%= customer.last_name %></td>
     <% for rental in customer.rental_items %>
     <td><%= rental.name %></td>
     <% end %>
