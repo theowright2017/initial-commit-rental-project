@@ -36,7 +36,7 @@ stock_item1 = StockItem.new({
   "max_speed_mph" =>  75,
   "cost_per_week" =>  80,
   "image" =>  "images/honda sh300i.jpg",
-  "rented"  =>  0
+  "rented"  =>  "f"
   })
   stock_item1.save()
 
@@ -48,7 +48,7 @@ stock_item1 = StockItem.new({
     "max_speed_mph" =>  160,
     "cost_per_week" =>  120,
     "image" =>  "images/honda sh300i.jpg",
-    "rented"  =>  0
+    "rented"  =>  "f"
     })
     stock_item2.save()
 
@@ -60,7 +60,7 @@ stock_item1 = StockItem.new({
       "max_speed_mph" =>  160,
       "cost_per_week" =>  150,
       "image" =>  "images/honda sh300i.jpg",
-      "rented"  =>  0
+      "rented"  =>  "f"
       })
       stock_item3.save()
 
@@ -72,7 +72,7 @@ stock_item1 = StockItem.new({
         "max_speed_mph" =>  180,
         "cost_per_week" =>  165,
         "image" =>  "images/honda sh300i.jpg",
-        "rented"  =>  0
+        "rented"  =>  "f"
         })
         stock_item4.save()
 

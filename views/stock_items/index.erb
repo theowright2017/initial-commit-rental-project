@@ -1,8 +1,15 @@
 <h1>Available Stock</h1>
 <form action="/stock/new" method="Get">
   <input type='submit' value="Add New Stock">
-  <!-- type = submit as method is get, links to action -->
   </form>
+  <!-- type = submit as method is get, links to action -->
+<br>
+
+  <form  action="/stock" >
+  <input type="text" placeholder="Search.." name="search2">
+  <button type="submit"><i>search</i></button>
+</form>
+
 <br>
 <br>
 <br>
@@ -16,6 +23,7 @@
     <th>Category</th>
     <th>Max Speed</th>
     <th>Cost per Week</th>
+    <th>Availability</th>
     <th></th>
     <th></th>
   </tr>
@@ -34,6 +42,8 @@
      <td><%= item.category_cc %></td>
      <td><%= item.max_speed_mph %></td>
      <td><%= item.cost_per_week %></td>
+     <td><%= item.rented %></td>
+
      <td>
        <form action="/stock/<%=item.id%>/edit" method="Get">
               <input type="submit" value="edit"/>

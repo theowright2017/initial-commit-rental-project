@@ -47,6 +47,20 @@ def customer()
   return Customer.new(results[0])
 end
 
+def stock()
+  sql = "SELECT * FROM stock_items WHERE id = $1"
+  values = [@stock_item_id]
+  results = SqlRunner.run(sql, values)
+  return StockItem.new(results[0])
+end
+
+def self.find(id)
+  sql = "SELECT * FROM rentals WHERE id = $1"
+  values = [id]
+  results = SqlRunner.run(sql, values).first
+  return Rental.new(results)
+end
+
 def self.delete(id)
   sql = "DELETE FROM rentals WHERE id = $1"
   values = [id]

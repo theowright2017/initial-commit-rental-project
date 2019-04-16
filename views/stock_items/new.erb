@@ -35,7 +35,7 @@
   <input type="number" id="cost" name="cost_per_week">
 
   <select  name="rented">
-    <option value="rented" selected disabled>0 if available</option>
+    <option value="rented" selected disabled>availability</option>
     <% @rented.each do |item| %>
     <option value="<%=item%>"><%=item%></option>
     <% end %>

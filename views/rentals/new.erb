@@ -5,10 +5,25 @@
 
 <label for="bike">Bike:</label>
 <select id="bike" name="stock_item_id">
+
+
   <option value="" selected disabled>Select a Bike</option>
+
   <% @stock.each do |item| %>
-  <option value="<%= item.id%>"><%= item.manufacturer %> <%= item.name %> <%=item.rented%></option>
+
+    <% if item.rented == "f" %>
+
+  <option value="<%=item.id%>"><%= item.manufacturer %> <%= item.name %>
+     <%=item.rented%></option>
+
+    <% else %>
+
+    <option value="<%=item.id%>"disabled><%= item.manufacturer%>
+      <%= item.name%> <%=item.rented%>></option>
+
+    <% end %>
   <% end %>
+
 </select>
 
 <label for="customer">Customer:</label>

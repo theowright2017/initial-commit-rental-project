@@ -19,7 +19,7 @@ CREATE TABLE stock_items
   max_speed_mph INT,
   cost_per_week INT,
   image VARCHAR(255),
-  rented BIT
+  rented BOOLEAN
 );
 
 CREATE TABLE rentals

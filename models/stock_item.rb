@@ -56,6 +56,34 @@ class StockItem
     SqlRunner.run(sql, values)
   end
 
+  def  change_rented_to_unavailable()
+    sql = "UPDATE stock_items
+    SET   rented = $1
+    WHERE id = $2"
+    values = ["t", @id]
+    SqlRunner.run(sql,values)
+    @rented = true
+  end
+
+  def  change_rented_to_available()
+    sql = "UPDATE stock_items
+    SET   rented = $1
+    WHERE id = $2"
+    values = ["f", @id]
+    SqlRunner.run(sql,values)
+    @rented = false
+  end
+
+  # def self.find_by_rental_id(id)
+  #   sql = "SELECT * FROM stock_items i INNER JOIN rentals r
+  #   ON r.stock_item_id = i.id
+  #   WHERE r.id = $1"
+  #   values = [id]
+  #   results = SqlRunner.run(sql, values)
+  #   return results.map { |item| StockItem.new(item)}
+  # end
+
+
   def self.find(id)
     sql = "SELECT * FROM stock_items WHERE id = $1"
     values = [id]
@@ -63,6 +91,15 @@ class StockItem
     return StockItem.new(results)
   end
   #we need the method to return the object, if we just return results, this will give an array, so we need to turn this array element into an instance of the stockitem class
+
+  # def self.find(name)
+  #   sql = "SELECT * FROM stock_items WHERE name = $1"
+  #   v
+  #   results = SqlRunner.run(sql, values).first
+  #   return StockItem.new(results)
+  # end
+
+
 
   def delete()
     sql = "DELETE FROM stock_items WHERE id = $1"
