@@ -59,7 +59,7 @@ class Customer
   end
 
   def self.search(input)
-    sql = "SELECT * FROM customers WHERE (first_name LIKE '#{input}') OR (last_name LIKE '#{input}')"
+    sql = "SELECT * FROM customers WHERE (first_name LIKE '%#{input.capitalize}%') OR (last_name LIKE '%#{input.capitalize}%')  "
     results = SqlRunner.run(sql)
     return results.map { |customer| Customer.new(customer) }
   end

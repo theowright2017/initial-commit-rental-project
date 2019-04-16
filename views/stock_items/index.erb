@@ -5,10 +5,23 @@
   <!-- type = submit as method is get, links to action -->
 <br>
 
-  <form  action="/stock" >
-  <input type="text" placeholder="Search.." name="search2">
-  <button type="submit"><i>search</i></button>
+
+
+  <form  action="/stock/search" method='get' >
+<select id="name" name="input">
+  <option value="name" selected disabled>Select a Model</option>
+  <% @stock.each do |item| %>
+  <option value="<%= item.manufacturer%>"><%= item.manufacturer %></option>
+  <% end %>
+</select>
+<input type="submit" name="type" value="search">
 </form>
+<form  action="/stock/reset" method="get">
+
+  <input type="submit" name="reset" value="reset">
+
+</form>
+
 
 <br>
 <br>

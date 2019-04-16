@@ -28,8 +28,8 @@ end
 # end
 
 post '/customers/search' do
-  @customers= Customer.all()
-  Customer.search(params[:input])
+  @customers = Customer.search(params[:input])
+  # binding.pry
   erb(:'customers/search')
 end
 

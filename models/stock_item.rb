@@ -74,6 +74,14 @@ class StockItem
     @rented = false
   end
 
+  def self.search(input)
+    sql = "SELECT * FROM stock_items WHERE (manufacturer LIKE '#{input}')"
+    results = SqlRunner.run(sql)
+    return results.map { |item| StockItem.new(item) }
+  end
+
+
+
   # def self.find_by_rental_id(id)
   #   sql = "SELECT * FROM stock_items i INNER JOIN rentals r
   #   ON r.stock_item_id = i.id

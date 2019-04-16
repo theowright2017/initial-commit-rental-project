@@ -11,10 +11,20 @@ get '/stock' do
   erb(:'stock_items/index')
 end
 
+get '/stock/reset' do
+  redirect to "/stock"
+end
+
 get '/stock/new' do
   @stock = ["Standard", "Sports Bike", "Tourer"]
   @rented = ["f"]
   erb(:'/stock_items/new')
+end
+
+get '/stock/search' do
+  # binding.pry
+  @stock = StockItem.search(params[:input])
+  erb(:'stock_items/index')
 end
 
 post '/stock' do
@@ -39,3 +49,9 @@ post '/stock/:id/delete' do
   StockItem.delete(params[:id])
   redirect to "/stock"
 end
+
+# post '/stock/search' do
+#   @stock= StockItem.all()
+#   StockItem.search(params[:input])
+#   erb(:'stock_items/search')
+# end
