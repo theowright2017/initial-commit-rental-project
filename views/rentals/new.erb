@@ -11,10 +11,10 @@
 
   <% @stock.each do |item| %>
 
-    <% if item.rented == 'f' %>
+    <% if item.rented == 't' %>
 
   <option value="<%=item.id%>"><%= item.manufacturer %> <%= item.name %>
-     <%#<%=item.rented%></option>
+    <%= item.type %></option>
 
     <% else %>
 

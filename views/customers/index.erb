@@ -2,7 +2,7 @@
 
 <h1>Customers</h1>
 
-<form class="search_customer" action="/customers/search" method="post">
+<form  action="/customers/search" method="post">
   <input type="search" name="input" placeholder="name">
   <input type="submit" name="button" value="search">
 </form>
@@ -14,25 +14,25 @@
 <br>
 <br>
 <br>
-<table>
-  <tr>
+<table class="search_customer">
+  <tr  >
     <th>First Name</th>
     <th>Last Name</th>
     <th>Rental</th>
     <th></th>
     <th></th>
   </tr>
-</table>
+
 
 
 <% @customers.each do |customer| %>
 
-<table>
+
   <tr>
     <td><%= customer.first_name %></td>
     <td><%= customer.last_name %></td>
-    <% for rental in customer.rental_items %>
-    <td><%= rental.name %></td>
+  <td>  <% for rental in customer.rental_items %>
+    <%= rental.manufacturer %> <%= rental.name %>  </td>
     <% end %>
     <td>
       <form  action="/customers/<%=customer.id %>/edit" method="get">

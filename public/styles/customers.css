@@ -1,0 +1,15 @@
+.each_customer {
+  display: flex;
+  justify-content: flex-start;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.search_customer {
+  margin-right: 20px;
+  border-collapse: collapse;
+  
+}
+.search_customer td, .search_customer th {
+  border: 1px solid  white;
+  padding: 8px;
+}

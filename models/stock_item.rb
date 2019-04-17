@@ -60,18 +60,18 @@ class StockItem
     sql = "UPDATE stock_items
     SET   rented = $1
     WHERE id = $2"
-    values = [true, @id]
+    values = [false, @id]
     SqlRunner.run(sql,values)
-    @rented = true
+    @rented = false
   end
 
   def  change_rented_to_available()
     sql = "UPDATE stock_items
     SET   rented = $1
     WHERE id = $2"
-    values = [false, @id]
+    values = [true, @id]
     SqlRunner.run(sql,values)
-    @rented = false
+    @rented = true
   end
 
   def self.search(input)

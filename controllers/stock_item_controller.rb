@@ -16,14 +16,21 @@ get '/stock/reset' do
 end
 
 get '/stock/new' do
-  @stock = ["Standard", "Sports Bike", "Tourer"]
-  @rented = ["f"]
+  @type = ["Adventure", "Cruiser", "Tourer", "Roadster", "Sports Bike", "Scooter", "Standard", "Other"]
+  
+  @manufacturer = ["Aprilla", "BMW", "Buell", "Ducati", "Harley Davidson",   "Honda", "Kawazaki", "Suzuki", "Triumph", "Yamaha", "Other"]
   erb(:'/stock_items/new')
 end
+
+
+
 
 get '/stock/search' do
   # binding.pry
   @stock = StockItem.search(params[:input])
+
+  # binding.pry
+
   erb(:'stock_items/index')
 end
 
