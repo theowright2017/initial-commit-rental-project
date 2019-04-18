@@ -1,0 +1,50 @@
+.stock_list {
+  margin-right: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.stock_list th {
+  background-color: teal;
+  color: white;
+}
+.stock_list td {
+}
+
+.stock_list td, .stock_list th {
+  border: 1px solid  white;
+  padding: 8px;
+  text-align: center;
+}
+
+
+.search_customer {
+  margin-right: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.search_customer td, .search_customer th {
+  border: 1px solid  white;
+  padding: 8px;
+  text-align: center;
+}
+.search_customer th {
+  background-color: teal;
+  color: white;
+}
+
+.rental_table {
+  margin-right: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.rental_table td, .rental_table th {
+  border: 1px solid  white;
+  padding: 8px;
+  text-align: center;
+}
+.rental_table th {
+  background-color: teal;
+  color: white;
+}

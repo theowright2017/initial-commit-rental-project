@@ -17,7 +17,7 @@ end
 
 get '/stock/new' do
   @type = ["Adventure", "Cruiser", "Tourer", "Roadster", "Sports Bike", "Scooter", "Standard", "Other"]
-  
+
   @manufacturer = ["Aprilla", "BMW", "Buell", "Ducati", "Harley Davidson",   "Honda", "Kawazaki", "Suzuki", "Triumph", "Yamaha", "Other"]
   erb(:'/stock_items/new')
 end
@@ -47,7 +47,7 @@ end
 
 post '/stock/:id/edit' do
   stock = StockItem.new(params)
-  stock.update()
+  stock.update_all_but_rented()
   redirect to '/stock'
 end
 # this takes the new instance of stockitem, inputs the parameters taken from the get, (where the form is from) and updates it into the database

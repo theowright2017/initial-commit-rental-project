@@ -37,7 +37,7 @@ class StockItem
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
-  def update()
+  def update_all_but_rented()
     sql = "UPDATE stock_items
     SET
     (name,
@@ -46,13 +46,13 @@ class StockItem
     type,
     category_cc,
     max_speed_mph,
-    cost_per_week,
-    rented
+    cost_per_week
+
     )
      =
-      ($1, $2, $3, $4, $5, $6, $7, $8)
-    WHERE id = $9"
-    values = [@name, @image, @manufacturer, @type, @category_cc, @max_speed_mph, @cost_per_week, @rented, @id]
+      ($1, $2, $3, $4, $5, $6, $7)
+    WHERE id = $8"
+    values = [@name, @image, @manufacturer, @type, @category_cc, @max_speed_mph, @cost_per_week, @id]
     SqlRunner.run(sql, values)
   end
 

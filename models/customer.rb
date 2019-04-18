@@ -54,7 +54,7 @@ class Customer
      =
       ($1, $2)
     WHERE id = $3"
-    values = [@name, @id]
+    values = [@first_name, @last_name, @id]
     SqlRunner.run(sql, values)
   end
 

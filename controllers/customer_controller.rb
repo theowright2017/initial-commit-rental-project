@@ -45,8 +45,8 @@ get '/customers/:id/edit' do
 end
 
 post '/customers/:id/edit' do
-  customer = Customer.new(params)
-  customer.update()
+  @customer = Customer.new(params)
+  @customer.update()
   redirect to '/customers'
 end
 # this method is creating a new instance of customer class, using the params we alreay have from customers route. it will then update the database under that customer id for any changes made, essentially we replace the row of data with new input

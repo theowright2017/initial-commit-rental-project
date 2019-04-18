@@ -7,7 +7,7 @@
   <input type="submit" name="button" value="search">
 </form>
 
-
+<br>
 <form action="/customers/new" method="GET">
   <input class="btn btn--action" type='submit' value="Add New Customer">
 </form>
@@ -34,14 +34,14 @@
   <td>  <% for rental in customer.rental_items %>
     <%= rental.manufacturer %> <%= rental.name %>  </td>
     <% end %>
-    <td>
+    <td class="btn_td">
       <form  action="/customers/<%=customer.id %>/edit" method="get">
-        <input type="submit" name="edit" value="edit">
+        <input class="btn_cust" type="submit" name="edit" value="edit">
       </form>
     </td>
-    <td>
+    <td class="btn_td">
       <form action="/customers/ <%= customer.id %>/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />
+        <input class="btn_cust" type="submit" value="delete" />
       </form>
     </td>
   </tr>

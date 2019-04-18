@@ -1,16 +1,26 @@
 <h1>Rentals</h1>
 
-<a href="rentals/new">New Rental</a>
+<form class="" action="/rentals/new" method="get">
+  <input type="submit" name="" value="new rental">
+</form>
 
-<ul>
-  <% for rental in @rentals %>
-  <li>
-    <p><%= rental.item.manufacturer %> <%= rental.item.name %> is being rented by <%= rental.customer.first_name %> <%= rental.customer.last_name %></p>
-    <p>
-      <form action="/rentals/<%= rental.id %>/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />
-      </form>
-    </p>
-  </li>
+
+
+
+<table class="rental_table">
+  <tr>
+    <th>Stock Item:</th>
+    <th>Currently Rented By:</th>
+    <th></th>
+  </tr>
+  <% @rentals.each do |rental| %>
+  <tr>
+    <td><%=rental.item.manufacturer %> <%=rental.item.name %></td>
+    <td><%= rental.customer.first_name %> <%= rental.customer.last_name %>
+    </td>
+    <td><form action="/rentals/<%= rental.id %>/delete" method="POST">
+      <input class="btn btn--danger" type="submit" value="delete" />
+    </form></td>
+  </tr>
   <% end %>
-</ul>
+</table>
