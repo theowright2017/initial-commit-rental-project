@@ -1,6 +1,5 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
-require( 'pry-byebug' )
 require_relative( '../models/rental.rb' )
 require_relative( '../models/customer.rb' )
 require_relative( '../models/stock_item.rb' )
@@ -8,7 +7,6 @@ also_reload( '../models/*' )
 
 get '/customers' do
   @customers = Customer.all()
-  # binding.pry
   erb ( :"customers/index")
 end
 
@@ -22,14 +20,8 @@ get '/customers/:id' do
   erb (:'customers/show')
 end
 
-# get '/customers/search' do
-#   @customers = Customer.all()
-#   erb(:'customers/search')
-# end
-
 post '/customers/search' do
   @customers = Customer.search(params[:input])
-  # binding.pry
   erb(:'customers/search')
 end
 

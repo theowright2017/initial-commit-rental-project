@@ -1,6 +1,5 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
-require( 'pry-byebug' )
 require_relative( '../models/rental.rb' )
 require_relative( '../models/customer.rb' )
 require_relative( '../models/stock_item.rb' )
@@ -26,10 +25,8 @@ end
 post '/rentals' do
   rental = Rental.new(params)
   rental.save()
-    # binding.pry
   item = StockItem.find(params[:stock_item_id])
   item.change_rented_to_unavailable()
-
   redirect ('/rentals')
 end
 
