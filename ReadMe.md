@@ -1,5 +1,5 @@
 Rental System Project
-This system is designed to allow the owner of a motorcycle store to manage his rentals.
+This system is designed to allow the owner of a motorcycle store to manage their rentals.
 
 -- It allows you to add, remove and edit customers, add, remove and edit stock items, and assign and remove rentals.
 
